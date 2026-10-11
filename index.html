@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>苗栗縣科技執法設備與取締件數統計</title>
+    
+    <!-- Leaflet 地圖樣式與腳本 -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- Chart.js 圖表庫 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- PapaParse CSV 解析庫 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>苗栗縣科技執法設備取締地點與件數統計</h1>
+        <p>提供苗栗縣轄區內科技執法設置地點、座標及 113 年下半年取締件數視覺化分析</p>
+    </header>
+
+    <main class="container">
+        <!-- 地圖展示區 -->
+        <section class="card">
+            <h2>科技執法設備分佈地圖</h2>
+            <div id="map"></div>
+        </section>
+
+        <!-- 圖表展示區 -->
+        <section class="card">
+            <h2>各地點取締件數統計 (113年下半年)</h2>
+            <div class="chart-container">
+                <canvas id="enforcementChart"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>資料來源：苗栗縣政府警察局公開資料</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

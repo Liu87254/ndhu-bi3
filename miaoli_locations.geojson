@@ -1,0 +1,385 @@
+﻿{
+    "type":  "FeatureCollection",
+    "features":  [
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              120.8163413,
+                                                              24.5521006
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "id":  "1",
+                                            "district":  "苗栗市",
+                                            "type":  "路口多功能執法",
+                                            "items":  "違規停車",
+                                            "location":  "苗栗市中正路三角公園周邊道路",
+                                            "speed_limit":  "",
+                                            "direction":  "南向北",
+                                            "unit":  "苗栗分局"
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              120.8800459,
+                                                              24.6865031
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "id":  "2",
+                                            "district":  "竹南鎮",
+                                            "type":  "路口多功能執法",
+                                            "items":  "違規停車",
+                                            "location":  "竹南鎮竹南火車站東、西站圓環周邊道路",
+                                            "speed_limit":  "",
+                                            "direction":  "南向北",
+                                            "unit":  "竹南分局"
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              120.912778,
+                                                              24.690309
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "id":  "3",
+                                            "district":  "頭份市",
+                                            "type":  "路口多功能執法",
+                                            "items":  "測速、闖紅燈、違規停車、車輛不暫停讓行人",
+                                            "location":  "頭份市中華路與自強路口",
+                                            "speed_limit":  "60",
+                                            "direction":  "東南向西北",
+                                            "unit":  "頭份分局"
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              120.910867,
+                                                              24.687447
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "id":  "4",
+                                            "district":  "頭份市",
+                                            "type":  "路口多功能執法",
+                                            "items":  "逆向行駛、車輛不暫停讓行人",
+                                            "location":  "頭份市中正路與信東路口",
+                                            "speed_limit":  "",
+                                            "direction":  "東南向西北",
+                                            "unit":  "頭份分局"
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              120.906834,
+                                                              24.687191
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "id":  "5",
+                                            "district":  "頭份市",
+                                            "type":  "路口多功能執法",
+                                            "items":  "測速、闖紅燈、未保持路口淨空、車輛不暫停讓行人",
+                                            "location":  "頭份市中央路與自強路口周邊道路",
+                                            "speed_limit":  "60",
+                                            "direction":  "西北向東南",
+                                            "unit":  "頭份分局"
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              120.902709,
+                                                              24.691353
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "id":  "6",
+                                            "district":  "頭份市",
+                                            "type":  "路口多功能執法",
+                                            "items":  "車輛不暫停讓行人、未依規定兩段式左轉、直行車占用左轉彎專用車道",
+                                            "location":  "頭份市中央路與中興路口",
+                                            "speed_limit":  "",
+                                            "direction":  "東南向西北",
+                                            "unit":  "頭份分局"
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              120.885424,
+                                                              24.694074
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "id":  "7",
+                                            "district":  "頭份市",
+                                            "type":  "路口多功能執法",
+                                            "items":  "測速、闖紅燈、未依規定兩段式左轉、直行車占用左轉彎專用車道",
+                                            "location":  "頭份市中央路與永貞路口",
+                                            "speed_limit":  "60",
+                                            "direction":  "東向西",
+                                            "unit":  "頭份分局"
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              120.879565,
+                                                              24.693259
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "id":  "8",
+                                            "district":  "竹南鎮",
+                                            "type":  "路口多功能執法",
+                                            "items":  "闖紅燈、未依標誌標線行駛、車輛不暫停讓行人",
+                                            "location":  "竹南鎮環市路三段與光復路口",
+                                            "speed_limit":  "",
+                                            "direction":  "西北向東南",
+                                            "unit":  "竹南分局"
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              120.818773,
+                                                              24.529024
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "id":  "9",
+                                            "district":  "公館鄉",
+                                            "type":  "路口多功能執法",
+                                            "items":  "測速、闖紅燈、占用大貨車迴轉道、直行車占用左轉彎專用車道",
+                                            "location":  "公館鄉台6線與苗26-2線口",
+                                            "speed_limit":  "60",
+                                            "direction":  "東向西",
+                                            "unit":  "苗栗分局"
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              120.824523,
+                                                              24.569981
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "id":  "10",
+                                            "district":  "苗栗市",
+                                            "type":  "路口多功能執法",
+                                            "items":  "跨越雙白線行駛、未依標誌標線行駛、未保持路口淨空、車輛不暫停讓行人",
+                                            "location":  "苗栗市中正路與為公路口周邊道路",
+                                            "speed_limit":  "",
+                                            "direction":  "西北向東南",
+                                            "unit":  "苗栗分局"
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              120.815133,
+                                                              24.550807
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "id":  "11",
+                                            "district":  "苗栗市",
+                                            "type":  "路口多功能執法",
+                                            "items":  "闖紅燈、違規停車、車輛不暫停讓行人",
+                                            "location":  "苗栗市恭敬路與信義街口",
+                                            "speed_limit":  "",
+                                            "direction":  "東向西",
+                                            "unit":  "苗栗分局"
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              120.651744,
+                                                              24.443308
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "id":  "12",
+                                            "district":  "苑裡鎮",
+                                            "type":  "路口多功能執法",
+                                            "items":  "闖紅燈、未依規定兩段式左轉、車輛不暫停讓行人",
+                                            "location":  "苑裡鎮中山路與為公路口",
+                                            "speed_limit":  "",
+                                            "direction":  "東北向西南",
+                                            "unit":  "通霄分局"
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              120.823763,
+                                                              24.570023
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "id":  "13",
+                                            "district":  "苗栗市",
+                                            "type":  "路口多功能執法",
+                                            "items":  "車輛不暫停讓行人",
+                                            "location":  "苗栗市中山路與為公路口",
+                                            "speed_limit":  "",
+                                            "direction":  "東北向西南",
+                                            "unit":  "苗栗分局"
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              120.820949,
+                                                              24.569449
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "id":  "14",
+                                            "district":  "苗栗市",
+                                            "type":  "路口多功能執法",
+                                            "items":  "闖紅燈、車輛不暫停讓行人",
+                                            "location":  "苗栗市英才路與正發路口",
+                                            "speed_limit":  "",
+                                            "direction":  "北向南",
+                                            "unit":  "苗栗分局"
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              120.813826,
+                                                              24.564465
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "id":  "15",
+                                            "district":  "苗栗市",
+                                            "type":  "路口多功能執法",
+                                            "items":  "闖紅燈、未依標誌標線號誌行駛、車輛不暫停讓行人",
+                                            "location":  "苗栗市國華路與民族路口",
+                                            "speed_limit":  "",
+                                            "direction":  "北向南",
+                                            "unit":  "苗栗分局"
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              120.87281,
+                                                              24.687031
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "id":  "16",
+                                            "district":  "竹南鎮",
+                                            "type":  "路口多功能執法",
+                                            "items":  "闖紅燈、車輛不暫停讓行人",
+                                            "location":  "竹南鎮博愛街與大營路口",
+                                            "speed_limit":  "",
+                                            "direction":  "東南向西北",
+                                            "unit":  "竹南分局"
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              120.657357,
+                                                              24.438851
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "id":  "17",
+                                            "district":  "苑裡鎮",
+                                            "type":  "路口多功能執法",
+                                            "items":  "闖紅燈、車輛不暫停讓行人",
+                                            "location":  "苑裡鎮世界路與新興路口",
+                                            "speed_limit":  "",
+                                            "direction":  "東南向西北",
+                                            "unit":  "通霄分局"
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              120.9091747,
+                                                              24.6961546
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "id":  "18",
+                                            "district":  "頭份市",
+                                            "type":  "路口多功能執法",
+                                            "items":  "闖紅燈、轉彎或變換車道時不依規定、車輛不暫停讓行人",
+                                            "location":  "頭份市中興路與建國路路口",
+                                            "speed_limit":  "",
+                                            "direction":  "南向北、北向南",
+                                            "unit":  "頭份分局"
+                                        }
+                     },
+                     {
+                         "type":  "Feature",
+                         "geometry":  {
+                                          "type":  "Point",
+                                          "coordinates":  [
+                                                              120.86564,
+                                                              24.6891572
+                                                          ]
+                                      },
+                         "properties":  {
+                                            "id":  "19",
+                                            "district":  "竹南鎮",
+                                            "type":  "路口多功能執法",
+                                            "items":  "闖紅燈",
+                                            "location":  "竹南鎮博愛街與龍山路一段路口",
+                                            "speed_limit":  "",
+                                            "direction":  "東向西",
+                                            "unit":  "竹南分局"
+                                        }
+                     }
+                 ]
+}

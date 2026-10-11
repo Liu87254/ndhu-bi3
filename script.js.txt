@@ -1,0 +1,111 @@
+document.addEventListener("DOMContentLoaded", function () {
+    // 1. 初始化 Leaflet 地圖 (定位至苗栗縣中心點附近)
+    const map = L.map('map').setView([24.565, 120.820], 11);
+
+    // 加入 OpenStreetMap 圖層
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // 2. 解析並呈現「苗栗縣科技執法設備取締地點.csv」的地點標記
+    Papa.parse("苗栗縣科技執法設備取締地點.csv", {
+        download: true,
+        header: true,
+        skipEmptyLines: true,
+        complete: function (results) {
+            const data = results.data;
+            data.forEach(item => {
+                const lat = parseFloat(item['座標緯度']);
+                const lng = parseFloat(item['座標經度']);
+                const location = item['設置地點(路口或路段)'];
+                const type = item['科技執法種類'];
+                const items = item['取締項目(以"、"分隔)'];
+
+                if (!isNaN(lat) && !isNaN(lng)) {
+                    L.marker([lat, lng]).addTo(map)
+                        .bindPopup(`
+                            <div style="font-size: 14px;">
+                                <b style="color: #1a365d;">${location}</b><br>
+                                <b>執法種類：</b>${type}<br>
+                                <b>取締項目：</b>${items}
+                            </div>
+                        `);
+                }
+            });
+        },
+        error: function(err) {
+            console.error("讀取地點 CSV 失敗：", err);
+        }
+    });
+
+    // 3. 解析並呈現「113年下半年取締件數.csv」的長條圖
+    Papa.parse("113年下半年取締件數.csv", {
+        download: true,
+        header: true,
+        skipEmptyLines: true,
+        complete: function (results) {
+            const data = results.data;
+            
+            const labels = [];
+            const counts = [];
+
+            data.forEach(item => {
+                // 整理設置地點文字 (去除換行)
+                let locationName = item['設置地點'] ? item['設置地點'].replace(/\n/g, ' ') : '未知地點';
+                labels.push(locationName);
+
+                // 解析取締件數數字（將非數字字元剔除，如逗號或"件"字）
+                let rawCount = item['取締件數'] || "0";
+                let countNum = parseInt(rawCount.replace(/[^0-9]/g, ''), 10) || 0;
+                counts.push(countNum);
+            });
+
+            // 使用 Chart.js 繪製長條圖
+            const ctx = document.getElementById('enforcementChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: '113年下半年取締件數',
+                        data: counts,
+                        backgroundColor: 'rgba(26, 54, 93, 0.7)',
+                        borderColor: 'rgba(26, 54, 93, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: '件數 (件)' }
+                        },
+                        x: {
+                            ticks: {
+                                callback: function(val, index) {
+                                    let label = this.getLabelForValue(index);
+                                    // 若路段名稱太長，呈現時自動截斷
+                                    return label.length > 12 ? label.substr(0, 12) + '...' : label;
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `取締件數: ${context.parsed.y.toLocaleString()} 件`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        },
+        error: function(err) {
+            console.error("讀取件數 CSV 失敗：", err);
+        }
+    });
+});

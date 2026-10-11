@@ -1,0 +1,78 @@
+/* 全域基本樣式設定 */
+body {
+    font-family: "Microsoft JhengHei", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* 頁首 Header 樣式 */
+header {
+    background-color: #1a365d;
+    color: #ffffff;
+    text-align: center;
+    padding: 2.5rem 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0 0 0.5rem 0;
+    font-size: 2rem;
+}
+
+header p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 1rem;
+}
+
+/* 主內容區容器 */
+.container {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* 卡片式外框 */
+.card {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.card h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #1a365d;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 0.5rem;
+    font-size: 1.4rem;
+}
+
+/* 地圖容器高寬設定 */
+#map {
+    height: 480px;
+    width: 100%;
+    border-radius: 6px;
+}
+
+/* 圖表容器 */
+.chart-container {
+    position: relative;
+    height: 420px;
+    width: 100%;
+}
+
+/* 頁尾 Footer 樣式 */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: #666;
+    font-size: 0.9rem;
+    border-top: 1px solid #e2e8f0;
+    margin-top: 3rem;
+}
