@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>苗栗縣科技執法設備與取締件數統計</title>
     
-    <!-- 載入外部套件 -->
+    <!-- 載入外部套件 (Leaflet, Chart.js, PapaParse) -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
     
-    <!-- 內建樣式 -->
     <style>
         body {
             font-family: "Microsoft JhengHei", Arial, sans-serif;
@@ -113,31 +112,53 @@
         <p>資料來源：苗栗縣政府警察局公開資料</p>
     </footer>
 
-    <!-- 內建腳本 -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // 1. 初始化地圖 (定位至苗栗)
+            // 1. 初始化地圖 (定位於苗栗縣)
             const map = L.map('map').setView([24.565, 120.820], 11);
 
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; OpenStreetMap contributors'
             }).addTo(map);
 
-            // 2. 讀取地點 CSV
-            Papa.parse("苗栗縣科技執法設備取締地點.csv", {
-                download: true,
-                header: true,
-                skipEmptyLines: true,
-                encoding: "Big5", // 自動支援中文字碼
-                complete: function (results) {
-                    const data = results.data;
+            // 通用 Fetch + Decode CSV 函式（相容 ANSI/CP950 與 UTF-8 編碼）
+            async function fetchAndParseCSV(fileUrl) {
+                const response = await fetch(fileUrl);
+                if (!response.ok) {
+                    throw new Error(`無法讀取檔案: ${fileUrl}`);
+                }
+                const buffer = await response.arrayBuffer();
+                
+                // 先嘗試用 UTF-8 解碼，若出現亂碼（含有替換字元 \uFFFD）則換用 CP950/Big5 解碼
+                let text = new TextDecoder('utf-8').decode(buffer);
+                if (text.includes('\uFFFD')) {
+                    text = new TextDecoder('big5').decode(buffer);
+                }
+
+                return new Promise((resolve) => {
+                    Papa.parse(text, {
+                        header: true,
+                        skipEmptyLines: true,
+                        complete: function (results) {
+                            resolve(results.data);
+                        }
+                    });
+                });
+            }
+
+            // 2. 讀取並繪製科技執法地點地圖
+            fetchAndParseCSV("苗栗縣科技執法設備取締地點.csv")
+                .then(data => {
                     data.forEach(item => {
-                        // 自動尋找欄位（防止欄位名稱因編碼有微小差異）
-                        const lat = parseFloat(item['座標緯度'] || item['緯度']);
-                        const lng = parseFloat(item['座標經度'] || item['經度']);
-                        const location = item['設置地點(路口或路段)'] || item['設置地點'] || '未知地點';
-                        const type = item['科技執法種類'] || '科技執法';
-                        const items = item['取締項目(以"、"分隔)'] || item['取締項目'] || '';
+                        // 取得物件鍵值（容錯處理多餘空格）
+                        const keys = Object.keys(item);
+                        const getKey = (name) => keys.find(k => k.trim().includes(name));
+
+                        const lat = parseFloat(item[getKey('座標緯度')]);
+                        const lng = parseFloat(item[getKey('座標經度')]);
+                        const location = item[getKey('設置地點')] || '未知地點';
+                        const type = item[getKey('科技執法種類')] || '科技執法';
+                        const items = item[getKey('取締項目')] || '';
 
                         if (!isNaN(lat) && !isNaN(lng)) {
                             L.marker([lat, lng]).addTo(map)
@@ -150,25 +171,28 @@
                                 `);
                         }
                     });
-                }
-            });
+                })
+                .catch(err => console.error("地點 CSV 讀取失敗:", err));
 
-            // 3. 讀取件數 CSV 並繪圖
-            Papa.parse("113年下半年取締件數.csv", {
-                download: true,
-                header: true,
-                skipEmptyLines: true,
-                encoding: "Big5",
-                complete: function (results) {
-                    const data = results.data;
+            // 3. 讀取並繪製 113 年下半年取締件數圖表
+            fetchAndParseCSV("113年下半年取締件數.csv")
+                .then(data => {
                     const labels = [];
                     const counts = [];
 
                     data.forEach(item => {
-                        let locationName = item['設置地點'] ? item['設置地點'].replace(/\n/g, ' ') : '未知地點';
+                        const keys = Object.keys(item);
+                        const getKey = (name) => keys.find(k => k.trim().includes(name));
+
+                        let locationName = item[getKey('設置地點')];
+                        if (locationName) {
+                            locationName = locationName.replace(/\n/g, ' ');
+                        } else {
+                            locationName = '未知地點';
+                        }
                         labels.push(locationName);
 
-                        let rawCount = item['取締件數'] || "0";
+                        let rawCount = item[getKey('取締件數')] || "0";
                         let countNum = parseInt(rawCount.replace(/[^0-9]/g, ''), 10) || 0;
                         counts.push(countNum);
                     });
@@ -205,8 +229,8 @@
                             }
                         }
                     });
-                }
-            });
+                })
+                .catch(err => console.error("件數 CSV 讀取失敗:", err));
         });
     </script>
 </body>
